@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        groupDesc.setVisibility(View.GONE);
         filterPlaces(i);
         rvCountries.setAdapter(new CountryListAdapter(places, this));
     }
