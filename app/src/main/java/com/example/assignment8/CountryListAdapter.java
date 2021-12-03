@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,10 +16,10 @@ import java.util.List;
 public class CountryListAdapter extends RecyclerView.Adapter<CountryListAdapter.ViewHolder> {
 
     private final List<Place> places;
-    private OnPlaceSelect listener;
+    private final OnPlaceSelect listener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private CardView cvParent;
+        private final CardView cvParent;
         private final ImageView ivPlaceImg;
         private final TextView tvPlaceName;
         private final TextView tvPlaceCost;
@@ -37,6 +38,7 @@ public class CountryListAdapter extends RecyclerView.Adapter<CountryListAdapter.
         this.listener = listener;
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext())
@@ -50,10 +52,11 @@ public class CountryListAdapter extends RecyclerView.Adapter<CountryListAdapter.
         Place place = places.get(position);
         viewHolder.ivPlaceImg.setImageDrawable(ContextCompat.getDrawable(
                 viewHolder.ivPlaceImg.getContext(),
-                place.getImgId()
+                place.getImgId1()
         ));
         viewHolder.tvPlaceName.setText(place.getName());
-        viewHolder.tvPlaceCost.setText(String.valueOf(place.getVisitCharge()));
+        viewHolder.tvPlaceCost.setText(String.format("Cost to visit (per person): $%s",
+                place.getVisitCharge()));
         viewHolder.cvParent.setOnClickListener(view -> listener.onPlaceSelected(place));
     }
 
