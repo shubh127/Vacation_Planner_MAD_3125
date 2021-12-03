@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         R.drawable.cn4,
                         getString(R.string.cn_tower_desc)),
                 "Canada");
+
         placesMap.put(new Place("Niagara falls",
                         23,
                         R.drawable.niagra1,
@@ -109,6 +110,42 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         R.drawable.niagra4,
                         getString(R.string.niagra_falls_desc)),
                 "Canada");
+
+        placesMap.put(new Place("Mount Rushmore",
+                        5,
+                        R.drawable.mr1,
+                        R.drawable.mr2,
+                        R.drawable.mr3,
+                        R.drawable.mr4,
+                        getString(R.string.mount_rushmore_desc)),
+                "USA");
+
+        placesMap.put(new Place("Statue of Liberty",
+                        34,
+                        R.drawable.sl1,
+                        R.drawable.sl2,
+                        R.drawable.sl3,
+                        R.drawable.sl4,
+                        getString(R.string.statue_liberty_desc)),
+                "USA");
+
+        placesMap.put(new Place("White House",
+                        23,
+                        R.drawable.wh1,
+                        R.drawable.wh2,
+                        R.drawable.wh3,
+                        R.drawable.wh4,
+                        getString(R.string.white_house_desc)),
+                "USA");
+
+        placesMap.put(new Place("Times square",
+                        105,
+                        R.drawable.ts1,
+                        R.drawable.ts2,
+                        R.drawable.ts3,
+                        R.drawable.ts4,
+                        getString(R.string.times_square_desc)),
+                "USA");
 
         for (String value : placesMap.values()) {
             if (!countries.contains(value)) {
